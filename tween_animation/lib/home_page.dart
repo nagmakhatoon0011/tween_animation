@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
                   return Opacity(opacity: value,child: child,);
                 },child: Padding(
                   padding: const EdgeInsets.only(left:160,top: 30),
-                  child: Text("Hello",style: TextStyle(fontSize: 20),),
+                  child: Text("Hello",style: TextStyle(fontSize: 20,color: Colors.purple,fontWeight: FontWeight.bold),),
                 ),
                 ),
 
@@ -32,30 +32,44 @@ class _HomePageState extends State<HomePage> {
                 },child: Container(
                   width:150,
                   height:150,
-                  color: Colors.blueAccent,
-                  decoration: ,
+                  decoration: BoxDecoration(
+                    color: Colors.pinkAccent,
+                    shape: BoxShape.circle,
+                  ),
                 ),),
 
                 SizedBox(height: 30,),
                 TweenAnimationBuilder(tween: Tween<double>(begin: 50,end: 200), duration: Duration(seconds: 3), builder: (context, value, child) {
                   return Container(
                     width: value,
-                    height: 50,
-                    color: Colors.green,
+                    height:100,
+                   decoration: BoxDecoration(
+                     color: Colors.greenAccent,
+                     shape: BoxShape.circle,
+                   ),
                   );
                 },
                 ),
                 SizedBox(height: 30,),
+                TweenAnimationBuilder(tween: ColorTween(begin: Colors.red,end: Colors.green), duration: Duration(seconds: 3), builder: (context, Color? color, child) {
+                  return Container(
+                    width:80,
+                    height:80,
+                  decoration: BoxDecoration(
+                    color: Colors.orange,
+                   shape: BoxShape.circle,),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left:156,top: 30),
+                      child: Text("nagma",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+                    ),
+                  );
+                },),
+
+                SizedBox(height: 30,),
                 TweenAnimationBuilder(tween: Tween<double>(begin: 0,end: 1), duration: Duration(seconds: 2), builder: (context, value, child) {
                   return Transform.rotate(angle: value,child: child,);
                 },child: Icon(Icons.refresh,size: 50,color: Colors.deepOrange,),),
-                SizedBox(height: 30,),
-                TweenAnimationBuilder(tween: ColorTween(begin: Colors.red,end: Colors.green), duration: Duration(seconds: 3), builder: (context, Color? color, child) {
-                  return Container(
-                    width: 200,height: 100,color: color,alignment: Alignment.center,
-                    child: Text("fghjk"),
-                  );
-                },)
+
               ],
             )
 
