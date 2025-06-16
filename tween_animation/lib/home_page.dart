@@ -15,12 +15,43 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-         body: Column(
-           children: [
-             Text("nagma")
-           ],
-         ),
+            appBar: AppBar(title: Text("TweenAnimation",style: TextStyle(color: Colors.white),),leading: Icon(Icons.arrow_back,color: Colors.white,),backgroundColor: Colors.blueAccent,),
+            body: ListView(
+              children: [
+                TweenAnimationBuilder(tween: Tween<double>(begin: 0,end: 1), duration: Duration(seconds: 2), builder: (context, value, child) {
+                  return Opacity(opacity: value,child: child,);
+                },child: Text("hello"),
+                ),
 
-        ));
+                SizedBox(height: 30,),
+                TweenAnimationBuilder(tween: Tween<Offset>(begin: Offset(-1, 0),end: Offset(0, 0)), duration: Duration(seconds: 2), builder: (context, value, child) {
+                  return Transform.translate(offset: value,child: child,);
+                },child: Container(width: 100,height: 50,color: Colors.blueAccent,),),
+
+                SizedBox(height: 30,),
+                TweenAnimationBuilder(tween: Tween<double>(begin: 50,end: 200), duration: Duration(seconds: 3), builder: (context, value, child) {
+                  return Container(
+                    width: value,
+                    height: 50,
+                    color: Colors.green,
+                  );
+                },
+                ),
+                SizedBox(height: 30,),
+                TweenAnimationBuilder(tween: Tween<double>(begin: 0,end: 1), duration: Duration(seconds: 2), builder: (context, value, child) {
+                  return Transform.rotate(angle: value,child: child,);
+                },child: Icon(Icons.refresh,size: 50,color: Colors.deepOrange,),),
+                SizedBox(height: 30,),
+                TweenAnimationBuilder(tween: ColorTween(begin: Colors.red,end: Colors.green), duration: Duration(seconds: 3), builder: (context, Color? color, child) {
+                  return Container(
+                    width: 200,height: 100,color: color,alignment: Alignment.center,
+                    child: Text("fghjk"),
+                  );
+                },)
+              ],
+            )
+
+        )
+    );
   }
 }
