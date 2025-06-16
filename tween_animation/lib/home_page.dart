@@ -20,13 +20,21 @@ class _HomePageState extends State<HomePage> {
               children: [
                 TweenAnimationBuilder(tween: Tween<double>(begin: 0,end: 1), duration: Duration(seconds: 2), builder: (context, value, child) {
                   return Opacity(opacity: value,child: child,);
-                },child: Text("hello"),
+                },child: Padding(
+                  padding: const EdgeInsets.only(left:160,top: 30),
+                  child: Text("Hello",style: TextStyle(fontSize: 20),),
+                ),
                 ),
 
                 SizedBox(height: 30,),
                 TweenAnimationBuilder(tween: Tween<Offset>(begin: Offset(-1, 0),end: Offset(0, 0)), duration: Duration(seconds: 2), builder: (context, value, child) {
                   return Transform.translate(offset: value,child: child,);
-                },child: Container(width: 100,height: 50,color: Colors.blueAccent,),),
+                },child: Container(
+                  width:150,
+                  height:150,
+                  color: Colors.blueAccent,
+                  decoration: ,
+                ),),
 
                 SizedBox(height: 30,),
                 TweenAnimationBuilder(tween: Tween<double>(begin: 50,end: 200), duration: Duration(seconds: 3), builder: (context, value, child) {
